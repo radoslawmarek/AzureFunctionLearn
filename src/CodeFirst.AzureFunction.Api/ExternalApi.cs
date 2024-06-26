@@ -8,8 +8,8 @@ namespace CodeFirst.AzureFunction.Api
 {
     public class ExternalApi(ILogger<ExternalApi> logger)
     {
-        private const string EventHubConnection = "eventhub_invitation_response_connection_string";
-        
+        private const string EventHubConnection = "EventHubConnection";
+
         [Function("SendResponse")]
         public async Task<InvitationResponseOutput> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
