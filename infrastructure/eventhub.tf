@@ -35,6 +35,26 @@ resource "azurerm_role_assignment" "eventhub-reader-role" {
   principal_id         = azurerm_user_assigned_identity.eh-uai.principal_id
 }
 
+# Only for local development
+resource "azurerm_role_assignment" "eventhub-data-sender-role-for-app-reg" {
+  scope                = azurerm_eventhub_namespace.ehn.id
+  role_definition_name = "Azure Event Hubs Data Sender"
+  principal_id         = azuread_service_principal.app-spn.object_id
+}
+
+resource "azurerm_role_assignment" "eventhub-data-reciver-role-for-app-reg" {
+  scope                = azurerm_eventhub_namespace.ehn.id
+  role_definition_name = "Azure Event Hubs Data Receiver"
+  principal_id         = azuread_service_principal.app-spn.object_id
+}
+
+resource "azurerm_role_assignment" "eventhub-reader-role-for-app-reg" {
+  scope                = azurerm_eventhub_namespace.ehn.id
+  role_definition_name = "Reader"
+  principal_id         = azuread_service_principal.app-spn.object_id
+}
+# Only for local development - end
+
 
 resource "azurerm_eventhub" "eh-invitations" {
   name                = local.invitations-eventhub-name
