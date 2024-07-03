@@ -41,14 +41,9 @@ resource "azurerm_linux_function_app" "function-app" {
 
   app_settings = {
     WEBSITE_WEBDEPLOY_USE_SCM = true
-    # Remember, there are a better way to pass the connection string to the function app. Consider using:
-    # - KeyVault
-    # - Managed Identity
-    #eventhub_invitation_response_connection_string = azurerm_eventhub_authorization_rule.invitation-response-auth-rule.primary_connection_string
     EventHubConnection__credential : "managedidentity",
-    EventHubConnection__fullyQualifiedNamespace : "ehn-learn-azure-functions-01.servicebus.windows.net",
-    EventHubConnection__clientId : "8bd9342d-7ea7-49a0-a168-0d1f97a86ab4",
+    EventHubConnection__fullyQualifiedNamespace : "${azurerm_eventhub_namespace.ehn.name}.servicebus.windows.net",
+    EventHubConnection__clientId : azurerm_user_assigned_identity.eh-uai.client_id,
     EventHubInvitationResponseName = azurerm_eventhub.eh-invitation-responses.name
   }
-
 }
