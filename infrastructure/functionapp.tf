@@ -21,7 +21,10 @@ resource "azurerm_linux_function_app" "function-app" {
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
   service_plan_id            = azurerm_service_plan.function-app-service-plan.id
 
-
+  identity {
+    type         = "UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.eh-uai.id]
+  }
 
   site_config {
     application_stack {
@@ -37,12 +40,10 @@ resource "azurerm_linux_function_app" "function-app" {
   }
 
   app_settings = {
-    WEBSITE_WEBDEPLOY_USE_SCM                      = true
-    # Remember, there are a better way to pass the connection string to the function app. Consider using:
-    # - KeyVault
-    # - Managed Identity
-    eventhub_invitation_response_connection_string = azurerm_eventhub_authorization_rule.invitation-response-auth-rule.primary_connection_string
-    EventHubInvitationResponseName                 = azurerm_eventhub.eh-invitation-responses.name
+    WEBSITE_WEBDEPLOY_USE_SCM = true
+    EventHubConnection__credential : "managedidentity",
+    EventHubConnection__fullyQualifiedNamespace : "${azurerm_eventhub_namespace.ehn.name}.servicebus.windows.net",
+    EventHubConnection__clientId : azurerm_user_assigned_identity.eh-uai.client_id,
+    EventHubInvitationResponseName = azurerm_eventhub.eh-invitation-responses.name
   }
-
 }

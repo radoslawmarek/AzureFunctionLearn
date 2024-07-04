@@ -2,8 +2,7 @@
   "profiles": {
     "CodeFirst_AzureFunction_Api": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7183",
-      "launchBrowser": false
+      "commandLineArgs": "--port 7183  --verbose"
     }
   }
 }

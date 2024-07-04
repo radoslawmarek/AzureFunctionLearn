@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst.AzureFunction.Api", "CodeFirst.AzureFunction.Api.csproj", "{4193C65E-7DCA-44BD-BF79-DB948B66A059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "obj", "obj", "{6AC055A4-EB00-4D3B-9452-28FD0AC29D63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debug", "Debug", "{7C6AE2BA-536F-4624-8195-1061600FA909}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net8.0", "net8.0", "{D1D2C20F-76F2-4F7F-B4C7-5CDA6FE23EEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerExtensions", "obj\Debug\net8.0\WorkerExtensions\WorkerExtensions.csproj", "{D3F24025-5F49-462E-B047-F3789ECCDD15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4193C65E-7DCA-44BD-BF79-DB948B66A059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4193C65E-7DCA-44BD-BF79-DB948B66A059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4193C65E-7DCA-44BD-BF79-DB948B66A059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4193C65E-7DCA-44BD-BF79-DB948B66A059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F24025-5F49-462E-B047-F3789ECCDD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F24025-5F49-462E-B047-F3789ECCDD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F24025-5F49-462E-B047-F3789ECCDD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F24025-5F49-462E-B047-F3789ECCDD15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C6AE2BA-536F-4624-8195-1061600FA909} = {6AC055A4-EB00-4D3B-9452-28FD0AC29D63}
+		{D1D2C20F-76F2-4F7F-B4C7-5CDA6FE23EEE} = {7C6AE2BA-536F-4624-8195-1061600FA909}
+		{D3F24025-5F49-462E-B047-F3789ECCDD15} = {D1D2C20F-76F2-4F7F-B4C7-5CDA6FE23EEE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE03271A-67A2-476D-AD49-D189A2273554}
+	EndGlobalSection
+EndGlobal
