@@ -42,7 +42,7 @@ public class ExternalApi(ILogger<ExternalApi> logger)
                 logger.LogError("Failed to deserialize message: {Message}", message);
                 continue;
             }
-                
+
             logger.LogInformation("Invitation response with id = {Id} was processed: {Description}", invitationResponse.Id, invitationResponse.Description);
         }
     }
